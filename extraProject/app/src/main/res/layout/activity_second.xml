@@ -14,6 +14,7 @@
         android:layout_marginBottom="50dp"
         android:src="@drawable/icon"/>
 
+
     <TextView
         android:id="@+id/userName"
         android:layout_below="@+id/iconApp"
@@ -22,13 +23,19 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"/>
 
-    <ImageView
+
+    <ImageButton
         android:id="@+id/facebook_login"
         android:layout_width="270dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/userName"
-        android:src="@drawable/facebook_login"/>
+
+        android:background="@drawable/facebook_login"
+        android:onClick="onClick"
+        >
+    </ImageButton>
+
 
     <ImageView
         android:id="@+id/google_login"
@@ -37,4 +44,5 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/facebook_login"
         android:src="@drawable/google_login"/>
+
 </RelativeLayout>
