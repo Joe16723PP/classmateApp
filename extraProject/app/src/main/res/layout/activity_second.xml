@@ -14,12 +14,20 @@
         android:layout_marginBottom="50dp"
         android:src="@drawable/icon"/>
 
+    <TextView
+        android:id="@+id/userName"
+        android:layout_below="@+id/iconApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
     <ImageView
         android:id="@+id/facebook_login"
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/iconApp"
+        android:layout_below="@id/userName"
         android:src="@drawable/facebook_login"/>
 
     <ImageView
