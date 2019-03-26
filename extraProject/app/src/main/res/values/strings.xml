@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Class Mate</string>
-    <color name="yellow">#EFE100</color>
+    <string name="facebook_app_id">1581013648709126</string>
+    <string name="fb_login_protocol_scheme">fb1581013648709126</string>
 </resources>
