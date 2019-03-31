@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     TextView status;
+    Button testLoginBtn;
     private static final String TAG = "FacebookLogin";
     private static final int REQUEST_CODE = 10;
 
@@ -52,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             FacebookSdk.sdkInitialize(getApplicationContext());
             loginButton = findViewById(R.id.login_button);
             loginButton.setOnClickListener(this);
+            testLoginBtn = findViewById(R.id.testLogin);
+            testLoginBtn.setOnClickListener(this);
             callbackManager = CallbackManager.Factory.create();
             status = findViewById(R.id.status);
             loginButton.setReadPermissions(Arrays.asList("email"));
@@ -111,17 +115,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void updateUser(FirebaseUser myUserObj) {
-        Intent intent = new Intent(this, SecondActivity.class);
+        Intent intent = new Intent(this, StatusActivity.class);
         String getName = myUserObj.getEmail();
         intent.putExtra("name", getName);
-        //startActivity(intent);
-        startActivityForResult(intent, REQUEST_CODE);
+        startActivity(intent);
+        //startActivityForResult(intent, REQUEST_CODE);
     }
 
     @Override
     public void onClick(View v) {
         if (v == loginButton) {
             btnClickFBLogin(v);
+        }
+        else if (v == testLoginBtn) {
+            Intent intent = new Intent(this, StatusActivity.class);
+            startActivity(intent);
         }
     }
 }

@@ -74,6 +74,15 @@
                 android:layout_marginLeft="70dp"
                 />
 
+            <Button
+                android:layout_below="@+id/gmail_login_button"
+                android:id="@+id/testLogin"
+                android:text="Guess Login"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <TextView
                 android:id="@+id/status"
                 android:layout_width="wrap_content"
