@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,8 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.auth.IdpResponse;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FirebaseUser mUser;
     TextView status;
     private static final String TAG = "FacebookLogin";
+    private static final int REQUEST_CODE = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             loginButton.setReadPermissions(Arrays.asList("email"));
         } else {
             FirebaseUser myUserObj = mAuth.getCurrentUser();
-            updateUI(myUserObj);
+//            updateUI(myUserObj);
+            updateUser(myUserObj);
         }
     }
 
@@ -62,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onSuccess(LoginResult loginResult) {
                 handleFacebookToken(loginResult.getAccessToken());
-                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Success onSuccess", Toast.LENGTH_LONG).show();
             }
             @Override
             public void onCancel() {
@@ -84,8 +89,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             FirebaseUser myUserObj = mAuth.getCurrentUser();
-                            updateUI(myUserObj);
-                            Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Success OnHandle", Toast.LENGTH_LONG).show();
+                            updateUser(myUserObj);
                         } else {
                             Toast.makeText(getApplicationContext(),"Could not register to firebase" , Toast.LENGTH_LONG).show();
                         }
@@ -103,6 +108,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void updateUI(FirebaseUser myUserObj) {
         status.setText(myUserObj.getEmail());
         Log.d(TAG, "updateUI: " + myUserObj.getEmail());
+    }
+
+    private void updateUser(FirebaseUser myUserObj) {
+        Intent intent = new Intent(this, SecondActivity.class);
+        String getName = myUserObj.getEmail();
+        intent.putExtra("name", getName);
+        //startActivity(intent);
+        startActivityForResult(intent, REQUEST_CODE);
     }
 
     @Override
