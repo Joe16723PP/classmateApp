@@ -11,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -36,7 +37,6 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
 
         startTime = findViewById(R.id.start_timePicker);
         endTime = findViewById(R.id.end_timePicker);
-
         //NumberPicker
         tv_numberPicker = findViewById(R.id.tv_numberPicker);
         noPicker = findViewById(R.id.nopicker);
@@ -120,6 +120,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
                     month = month + 1;
                     String date_start = dayOfMonth + "/" + month + "/" + year;
                     startDate.setText(date_start);
+                    Toast.makeText(getApplicationContext(),date_start,Toast.LENGTH_LONG).show();
                 }
             };
         }
@@ -137,6 +138,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
                     month = month + 1;
                     String date_end = dayOfMonth + "/" + month + "/" + year;
                     endDate.setText(date_end);
+                    Toast.makeText(getApplicationContext(),date_end,Toast.LENGTH_LONG).show();
                 }
             };
 

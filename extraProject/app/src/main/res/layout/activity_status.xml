@@ -85,6 +85,8 @@
                     android:text="@string/student">
                 </Button>
 
+
+
             </LinearLayout>
 
 
@@ -92,7 +94,14 @@
 
         </FrameLayout>
 
-
+        <Button
+            android:gravity="bottom"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/sign_out"
+            android:text="Sign Out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
