@@ -42,7 +42,7 @@ public class TeacherMainActivity extends AppCompatActivity
         classTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeacherMainActivity.this,ClassDetailStudent.class);
+                Intent intent = new Intent(TeacherMainActivity.this,ClassDetailActivity.class);
                 startActivity(intent);
             }
         });
