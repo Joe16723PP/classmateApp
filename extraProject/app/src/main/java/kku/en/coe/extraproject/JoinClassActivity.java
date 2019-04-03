@@ -18,7 +18,7 @@ public class JoinClassActivity extends AppCompatActivity {
         joinClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(JoinClassActivity.this,ClassDetailActivity.class);
+                Intent intent = new Intent(JoinClassActivity.this,ClassDetailForStudent.class);
                 startActivity(intent);
             }
         });

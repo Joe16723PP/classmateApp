@@ -12,4 +12,8 @@
     <color name="green">#ADFF2F</color>
     <color name="black">#000000</color>
     <color name="blue">#0000FF</color>
+
+    <color name="crimson">#DC143C</color>
+    <color name="deepskyblue">#00BFFF</color>
+    <color name="greenyellow">#ADFF2F</color>
 </resources>
