@@ -16,6 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".GmailLogin"></activity>
+        <activity android:name=".FacebookLogin" />
         <activity android:name=".CreateClassActivity" />
         <activity
             android:name=".TeacherMainActivity"
@@ -61,7 +63,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ClassDetailStudent" />
-        <activity android:name=".ClassDetailForStudent"></activity>
+        <activity android:name=".ClassDetailForStudent" />
     </application>
 
 </manifest>
