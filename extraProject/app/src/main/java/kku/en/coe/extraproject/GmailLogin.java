@@ -1,6 +1,7 @@
 package kku.en.coe.extraproject;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -101,6 +102,7 @@ public class GmailLogin extends AppCompatActivity {
         Intent intent = new Intent(this, TeacherMainActivity.class);
         String email = myUserObj.getEmail();
         String name = myUserObj.getDisplayName();
+        Uri profilePic = myUserObj.getPhotoUrl();
         intent.putExtra("email", email);
         intent.putExtra("name" , name);
         Toast.makeText(GmailLogin.this, email,
