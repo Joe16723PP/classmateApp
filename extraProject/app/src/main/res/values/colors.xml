@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#A95454</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="write">#FFFFFF</color>
@@ -12,8 +12,10 @@
     <color name="green">#ADFF2F</color>
     <color name="black">#000000</color>
     <color name="blue">#0000FF</color>
-
+    <color name="gray">#FFE6E6</color>
     <color name="crimson">#DC143C</color>
     <color name="deepskyblue">#00BFFF</color>
     <color name="greenyellow">#ADFF2F</color>
+    <color name="colorNormal">#D65317</color>
+    <color name="colorPress">#AE3600</color>
 </resources>

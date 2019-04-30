@@ -36,5 +36,13 @@
     <string name="numberOf">Number of time remaining</string>
     <string name="total">Total Attended</string>
     <string name="emty"> </string>
+    <string name="title_activity_test_navigation">TestNavigation</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
 
 </resources>

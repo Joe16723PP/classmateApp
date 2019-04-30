@@ -98,9 +98,11 @@ public class GmailLogin extends AppCompatActivity {
     }
 
     private void updateUser(FirebaseUser myUserObj) {
-        Intent intent = new Intent(this, StatusActivity.class);
+        Intent intent = new Intent(this, TeacherMainActivity.class);
         String email = myUserObj.getEmail();
+        String name = myUserObj.getDisplayName();
         intent.putExtra("email", email);
+        intent.putExtra("name" , name);
         Toast.makeText(GmailLogin.this, email,
                 Toast.LENGTH_SHORT).show();
         startActivity(intent);

@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,14 +38,13 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     CallbackManager callbackManager;
-    LoginButton loginButton;
+//    LoginButton loginButton;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
-    TextView status;
     Button testLoginBtn;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 101;
-    SignInButton googleSignIn;
+    ImageButton googleSignIn;
     private static final String TAG = "FacebookLogin";
     private static final int REQUEST_CODE = 10;
 
@@ -56,14 +56,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (mUser == null){
             setContentView(R.layout.activity_main);
             FacebookSdk.sdkInitialize(getApplicationContext());
-            loginButton = findViewById(R.id.login_button);
-            loginButton.setOnClickListener(this);
-            testLoginBtn = findViewById(R.id.testLogin);
-            testLoginBtn.setOnClickListener(this);
+//            loginButton = findViewById(R.id.login_button);
+//            loginButton.setOnClickListener(this);
+//            testLoginBtn = findViewById(R.id.testLogin);
+//            testLoginBtn.setOnClickListener(this);
             callbackManager = CallbackManager.Factory.create();
-            status = findViewById(R.id.status);
             googleSignIn = findViewById(R.id.gmail_login_button);
-            loginButton.setReadPermissions(Arrays.asList("email"));
+//            loginButton.setReadPermissions(Arrays.asList("email"));
             googleSignIn.setOnClickListener(this);
         } else {
             FirebaseUser myUserObj = mAuth.getCurrentUser();
@@ -152,10 +151,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    }
 
     private void updateUser(FirebaseUser myUserObj) {
-        Intent intent = new Intent(this, StatusActivity.class);
+        Intent intent = new Intent(this, TeacherMainActivity.class);
         String email = myUserObj.getEmail();
+        String name = myUserObj.getDisplayName();
         intent.putExtra("email", email);
-        Toast.makeText(MainActivity.this, email,
+        intent.putExtra("name", name);
+        Toast.makeText(MainActivity.this, email + name,
                 Toast.LENGTH_SHORT).show();
         startActivity(intent);
         //startActivityForResult(intent, REQUEST_CODE);
@@ -163,18 +164,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v == loginButton) {
-//            Intent intent = new Intent(this,FacebookLogin.class);
-//            startActivity(intent);
-            btnClickFBLogin(v);
-        }
-        else if (v == googleSignIn){
+//        if (v == loginButton) {
+////            Intent intent = new Intent(this,FacebookLogin.class);
+////            startActivity(intent);
+//            btnClickFBLogin(v);
+//        }
+        if (v == googleSignIn){
             Intent intent = new Intent(this,GmailLogin.class);
             startActivity(intent);
         }
-        else if (v == testLoginBtn) {
-            Intent intent = new Intent(this, StatusActivity.class);
-            startActivity(intent);
-        }
+//        else if (v == testLoginBtn) {
+//            Intent intent = new Intent(this, StatusActivity.class);
+//            startActivity(intent);
+//        }
     }
 }
