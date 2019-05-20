@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <ImageView
+        android:id="@+id/iconApp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/icon"/>
+
+    <TextView
+        android:id="@+id/curUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="current User" />
+    <Button
+        android:id="@+id/sign_out"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/curUser"
+        android:text="Sign Out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!--<com.facebook.login.widget.LoginButton-->
+        <!--android:id="@+id/login_button"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_below="@+id/curUser"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:layout_marginBottom="30dp"-->
+        <!--/>-->
+</RelativeLayout>

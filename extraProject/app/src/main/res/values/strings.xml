@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Class Mate</string>
+    <string name="facebook_app_id">1581013648709126</string>
+    <string name="fb_login_protocol_scheme">fb1581013648709126</string>
+    <string name="app_joinClass">Join Class</string>
+    <string name="login_google">Sign in with google</string>
+
+    <string name="teacher">Teacher</string>
+    <string name="or">Or</string>
+    <string name="student">Student</string>
+
+    <string name="addcode">Add Code</string>
+
+    <string name="classDetail">Class Details</string>
+    <string name="details">Details</string>
+    <string name="day">Days :</string>
+    <string name="code">Code :</string>
+    <string name="time">Time :</string>
+    <string name="roster">Roster</string>
+    <string name="title_activity_teacher_main">TeacherMainActivity</string>
+    <string name="title_activity_detailStudent">Thai</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_search">search for classes</string>
+    <string name="menu">Menu</string>
+    <string name="item1">Item 1</string>
+    <string name="item2">Item 2</string>
+
+    <string name="Attendance">Attendance</string>
+    <string name="date">Date Wednesday 3/4/2556 </string>
+    <string name="Summary">Summary</string>
+    <string name="numberOf">Number of time remaining</string>
+    <string name="total">Total Attended</string>
+    <string name="emty"> </string>
+    <string name="title_activity_test_navigation">TestNavigation</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_activity_maps">Map</string>
+
+</resources>

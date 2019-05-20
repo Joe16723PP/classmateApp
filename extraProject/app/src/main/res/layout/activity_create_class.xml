@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateClassActivity">
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:text="Details"
+        android:textColor="#990000"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/linearBig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/details"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/style_linear_big"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+
+
+        <LinearLayout
+            android:id="@+id/linearName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/details">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Event Name"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:hint="Enter Event Name" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearCheckbox1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearName"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/tvDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Days"
+                android:textSize="20sp" />
+
+            <CheckBox
+                android:id="@+id/cbMon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Mon"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/cbTue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Tue"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/cbWed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Wed"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/cbThu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Thu"
+                android:onClick="onCheckboxClicked"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearCheckbox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearCheckbox1"
+            android:layout_marginLeft="115dp"
+            android:layout_marginTop="20dp">
+
+            <CheckBox
+                android:id="@+id/cbFri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fri"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/cbSat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Sat"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/cbSun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Sun"
+                android:onClick="onCheckboxClicked"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearCheckbox2"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Time"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/start_timePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/style_start_time"
+                android:gravity="center"
+                android:text="START"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/end_timePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/style_start_time"
+                android:gravity="center"
+                android:text="END"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:id="@+id/linearDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearTime"
+            android:layout_marginTop="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Event Start Date"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="39dp"
+                android:text="Event End Date"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearDate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearDate"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:id="@+id/start_datePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="62dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/style_date"
+                android:gravity="center"
+                android:text="START"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/end_datePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/style_date"
+                android:gravity="center"
+                android:text="END"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sendEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/linearBig"
+        android:layout_centerHorizontal="true"
+        android:text="Create Event"
+        android:textAllCaps="false"
+        android:background="@drawable/style_btn_create"
+        android:typeface="sans"
+        tools:ignore="InvalidId" />
+
+</RelativeLayout>
