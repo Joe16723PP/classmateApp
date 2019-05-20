@@ -1,24 +1,17 @@
 package kku.en.coe.extraproject;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -29,15 +22,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.data.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,15 +38,18 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private static final String TAG = "db";
+
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private List<ListItem> listItems;
+    private List<ListItem> listItems = new ArrayList<>();;
+    private List<ObjectEvent> objectEvents = new ArrayList<>();
 
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -78,6 +73,8 @@ public class TeacherMainActivity extends AppCompatActivity
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("users");
+
         setSupportActionBar(toolbar);
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(this);
@@ -89,31 +86,66 @@ public class TeacherMainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+//        ObjectEvent objectEvent = new ObjectEvent(
+//                "joe","joe","joejo","joe",10,12,10,10
+//        );
+//        objectEvents.add(objectEvent);
+//        ListItem listItem = new ListItem(
+//                "joe", "hie", "joejo"
+//        );
+//
+//        listItems.add(listItem);
+//
+//        adapter = new MyAdapter(objectEvents,this);
+//        recyclerView.setAdapter(adapter);
+
         getInitUser();
+//        getEventListFirebase();
 
-        myRef = database.getReference(name);
-        getFirebaseData();
-
-
-    }
-
-    private void getFirebaseData() {
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.child(name).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
-                Toast.makeText(TeacherMainActivity.this,
-                        "Value is " + value,
-                        Toast.LENGTH_LONG).show();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.e("Count" ,""+dataSnapshot.getChildrenCount());
+                objectEvents.clear();
+                List<String> keys = new ArrayList<>();
+                for(DataSnapshot keyNode : dataSnapshot.getChildren()){
+                    keys.add(keyNode.getKey());
+                    Log.e("fbdb",keyNode.getKey());
+                    ObjectEvent objectEvent = keyNode.getValue(ObjectEvent.class);
+                    objectEvents.add(objectEvent);
+                }
+                adapter = new MyAdapter(objectEvents,TeacherMainActivity.this);
+                recyclerView.setAdapter(adapter);
             }
-
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w(TAG, "Failed to read value.", databaseError.toException());
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
     }
+
+//    private void getEventListFirebase() {
+//        myRef.child(name).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Log.e("Count" ,""+dataSnapshot.getChildrenCount());
+////                objectEvents.clear();
+//                List<String> keys = new ArrayList<>();
+//                for( DataSnapshot keyNode : dataSnapshot.getChildren()){
+//                    keys.add(keyNode.getKey());
+//                    ObjectEvent objEvent = keyNode.getValue(ObjectEvent.class);
+//                    objectEvents.add(objEvent);
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//        adapter = new MyAdapter(objectEvents,TeacherMainActivity.this);
+//        recyclerView.setAdapter(adapter);
+//    }
 
     private void getInitUser() {
         Bundle extras = getIntent().getExtras();

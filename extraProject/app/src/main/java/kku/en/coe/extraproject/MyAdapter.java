@@ -21,10 +21,10 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    private List<ListItem> listItems;
+//    private List<ListItem> listItems;
     private Context context;
-
-    public MyAdapter(List<ListItem> listItems, Context context) {
+    private List<ObjectEvent> listItems;
+    public MyAdapter(List<ObjectEvent> listItems, Context context) {
         this.listItems = listItems;
         this.context = context;
     }
@@ -38,22 +38,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        final ListItem listItem = listItems.get(position);
-        viewHolder.tvHead.setText(listItem.getHeader());
-        viewHolder.tvDesc.setText(listItem.getDesc());
+        final ObjectEvent listItem = listItems.get(position);
+        viewHolder.tvHead.setText("joe");
+        viewHolder.tvDesc.setText("joe");
 
-        String https_url = listItem.getImgUrl().replace("http","https");
-//        Log.d("img",https_url);
-        Picasso.get()
-                .load(https_url)
-                .resize(50, 50)
-                .centerCrop()
-                .into(viewHolder.img);
+//        String https_url = listItem.getImgUrl().replace("http","https");
+//        Picasso.get()
+//                .load(https_url)
+//                .resize(50, 50)
+//                .centerCrop()
+//                .into(viewHolder.img);
 
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"clicked : " + listItem.getHeader(),Toast.LENGTH_LONG).show();
+                Toast.makeText(context,"clicked : " + listItem.getEmail(),Toast.LENGTH_LONG).show();
             }
         });
 

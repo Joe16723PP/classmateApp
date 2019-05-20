@@ -122,14 +122,14 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             String evName = eventName.getText().toString();
 
             String mergeTime = sTime+"," +eTime;
-            myRef = database.getReference(name);
+            myRef = database.getReference("users");
 
             ObjectEvent obj_evt = new ObjectEvent(email , sDate ,eDate ,mergeTime,evt_counter,lat,lng,0);
             Map<String, Object> Obj_val1 = obj_evt.toMap();
 
             Map<String, Object> childUpdates= new HashMap<>();
-            childUpdates.put("/users/"+ evName + "/", Obj_val1);
-
+//            childUpdates.put("/users/"+ evName + "/", Obj_val1);
+            childUpdates.put( name + "/" + evName + "/", Obj_val1);
             myRef.updateChildren(childUpdates);
 
 

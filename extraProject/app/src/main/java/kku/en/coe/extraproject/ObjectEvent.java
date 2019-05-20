@@ -10,8 +10,74 @@ import java.util.Map;
 public class ObjectEvent {
     public String email;
     public String start_date , end_date ,time;
-    public int evt_cnt , status;
+    public int evt_cnt;
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setStart_date(String start_date) {
+        this.start_date = start_date;
+    }
+
+    public void setEnd_date(String end_date) {
+        this.end_date = end_date;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setEvt_cnt(int evt_cnt) {
+        this.evt_cnt = evt_cnt;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
+
+    public int status;
     public double lat , lng;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getStart_date() {
+        return start_date;
+    }
+
+    public String getEnd_date() {
+        return end_date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public int getEvt_cnt() {
+        return evt_cnt;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
 
     public ObjectEvent() {
     }
