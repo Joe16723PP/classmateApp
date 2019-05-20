@@ -6,7 +6,6 @@
     <color name="write">#FFFFFF</color>
     <color name="writegray">#D3D3D3</color>
     <color name="red">#FF0000</color>
-    <color name="color_google_red">#C82727</color>
     <color name="pink">#ff1493</color>
     <color name="brown">#A52A2A</color>
     <color name="purple">#A020F0</color>
@@ -19,4 +18,9 @@
     <color name="greenyellow">#ADFF2F</color>
     <color name="colorNormal">#D65317</color>
     <color name="colorPress">#AE3600</color>
+    <color name="colorMiddle">#30e79e85</color>
+    <color name="colorDetails">#bb5a5a</color>
+    <color name="colorBtnDetails">#c06c84</color>
+    <color name="color_shape_btn">#bb5a5a</color>
+    <color name="color_pressed_btn">#6c5070</color>
 </resources>

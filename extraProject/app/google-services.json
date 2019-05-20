@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "721291047870-13f8mfkadtbkt24haren013jqedv6mtb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kku.en.coe.extraproject",
+            "certificate_hash": "bfdb63dc05104b661c26f66e531371f0c3b14fc6"
+          }
+        },
+        {
           "client_id": "721291047870-e233bhq4opdecss2qrmjf3rvha2m1b5c.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

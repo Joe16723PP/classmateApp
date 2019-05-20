@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button testLoginBtn;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 101;
-    Button googleSignIn;
+    ImageButton googleSignIn;
     private static final String TAG = "FacebookLogin";
     private static final int REQUEST_CODE = 10;
 
@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             FacebookSdk.sdkInitialize(getApplicationContext());
 //            loginButton = findViewById(R.id.login_button);
 //            loginButton.setOnClickListener(this);
-            testLoginBtn = findViewById(R.id.testLogin);
-            testLoginBtn.setOnClickListener(this);
+//            testLoginBtn = findViewById(R.id.testLogin);
+//            testLoginBtn.setOnClickListener(this);
             callbackManager = CallbackManager.Factory.create();
             googleSignIn = findViewById(R.id.gmail_login_button);
 //            loginButton.setReadPermissions(Arrays.asList("email"));
@@ -173,9 +173,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this,GmailLogin.class);
             startActivity(intent);
         }
-        else if (v == testLoginBtn) {
-            Intent intent = new Intent(this, TeacherMainActivity.class);
-            startActivity(intent);
-        }
+//        else if (v == testLoginBtn) {
+//            Intent intent = new Intent(this, StatusActivity.class);
+//            startActivity(intent);
+//        }
     }
 }

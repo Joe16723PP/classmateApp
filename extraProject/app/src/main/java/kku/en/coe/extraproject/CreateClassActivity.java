@@ -8,7 +8,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.NumberPicker;
@@ -16,30 +15,17 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CreateClassActivity extends AppCompatActivity implements NumberPicker.OnValueChangeListener, View.OnClickListener {
 
-    FirebaseDatabase database;
-    DatabaseReference myRef;
-    private String TAG = "database";
+
     private TextView startDate, endDate, startTime, endTime;
     private CheckBox cbMon, cbTue, cbWed, cbThu, cbFri, cbSat, cbSun;
     private DatePickerDialog.OnDateSetListener startDateListener, endDateListener;
     private TimePickerDialog.OnTimeSetListener startTimeListener, endTimeListener;
     String AmPm, sTime, eTime, sDate, eDate;
-    private FirebaseAuth mAuth;
-    FirebaseUser cur_user;
-    Double lat,lng;
-    int evt_counter;
-    Button sendEvent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,52 +42,40 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
         cbFri = findViewById(R.id.cbFri);
         cbSat = findViewById(R.id.cbSat);
         cbSun = findViewById(R.id.cbSun);
-        sendEvent = findViewById(R.id.sendEvent);
 
 
         startTime.setOnClickListener(this);
         endTime.setOnClickListener(this);
         startDate.setOnClickListener(this);
         endDate.setOnClickListener(this);
-        sendEvent.setOnClickListener(this);
-        mAuth = FirebaseAuth.getInstance();
-        cur_user = mAuth.getCurrentUser();
 
         getInit();
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("message");
-//        startTime.setText(String.format("%02d:%02d", 0, 0) + " " + AmPm);
-//        endTime.setText(String.format("%02d:%02d", 0, 0) + " " + AmPm);
-//        startDate.setText("01/01/2019");
-//        endDate.setText("01/01/2019");
-
         
     }
 
     private void getInit() {
         Bundle bn = getIntent().getExtras();
-        lat = bn.getDouble("lat");
-        lng = bn.getDouble("lng");
+        Double lat = bn.getDouble("lat");
+        Double lng = bn.getDouble("lng");
         Toast.makeText(CreateClassActivity.this, "lat: " + lat + " lng: " + lng, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onClick(View v) {
 
-//        Intent intent = new Intent(CreateClassActivity.this, TeacherMainActivity.class);
-//        intent.putExtra("startTime" , sTime);
-//        intent.putExtra("endTime" , eTime);
-//        intent.putExtra("startDate" , sDate);
-//        intent.putExtra("endDate" , eDate);
-//        intent.putExtra("cbMon" , cbMon.isChecked());
-//        intent.putExtra("cbTue" , cbTue.isChecked());
-//        intent.putExtra("cbWed" , cbWed.isChecked());
-//        intent.putExtra("cbThu" , cbThu.isChecked());
-//        intent.putExtra("cbFri" , cbFri.isChecked());
-//        intent.putExtra("cbSat" , cbSat.isChecked());
-//        intent.putExtra("cbSun" , cbSun.isChecked());
-//        startActivity(intent);
-
+        Intent intent = new Intent(CreateClassActivity.this, TeacherMainActivity.class);
+        intent.putExtra("startTime" , sTime);
+        intent.putExtra("endTime" , eTime);
+        intent.putExtra("startDate" , sDate);
+        intent.putExtra("endDate" , eDate);
+        intent.putExtra("cbMon" , cbMon.isChecked());
+        intent.putExtra("cbTue" , cbTue.isChecked());
+        intent.putExtra("cbWed" , cbWed.isChecked());
+        intent.putExtra("cbThu" , cbThu.isChecked());
+        intent.putExtra("cbFri" , cbFri.isChecked());
+        intent.putExtra("cbSat" , cbSat.isChecked());
+        intent.putExtra("cbSun" , cbSun.isChecked());
+        startActivity(intent);
 
         Calendar cal_StartTime = Calendar.getInstance();
         Calendar cal_StartDate = Calendar.getInstance();
@@ -110,27 +84,8 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
         int year = cal_StartDate.get(Calendar.YEAR);
         int month = cal_StartDate.get(Calendar.MONTH);
         int day = cal_StartDate.get(Calendar.DAY_OF_MONTH);
-        if (v == sendEvent) {
-            evt_counter = 5;
-            String name = cur_user.getDisplayName();
-            String email = cur_user.getEmail();
-            String mergeTime = sTime+"," +eTime;
-            myRef = database.getReference(name);
-            ObjectEvent obj_evt = new ObjectEvent(email , sDate ,eDate ,mergeTime,evt_counter,lat,lng,0);
-            Map<String, Object> Obj_val = obj_evt.toMap();
 
-            Map<String, Object> childUpdates= new HashMap<>();
-            childUpdates.put("/users/", Obj_val);
-            myRef.updateChildren(childUpdates);
-            Toast.makeText(CreateClassActivity.this,
-                    "Write new user : " + name ,
-                    Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(CreateClassActivity.this, TeacherMainActivity.class);
-            intent.putExtra("name" , cur_user.getDisplayName());
-            intent.putExtra("email" , cur_user.getEmail());
-            startActivity(intent);
-        }
-        else if (v == startTime) {
+        if (v == startTime) {
             TimePickerDialog dialog_StartTime = new TimePickerDialog(
                     CreateClassActivity.this,android.R.style.Theme_DeviceDefault_Light_Dialog,
                     startTimeListener, hour, minute, false);

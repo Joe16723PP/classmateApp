@@ -26,19 +26,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-        -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
+        <activity android:name=".CreateClassActivity"></activity>
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
@@ -46,16 +34,8 @@
             android:name=".TeacherMainActivity"
             android:label="@string/title_activity_teacher_main"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
-        <activity
-            android:name=".TestNavigation"
-            android:label="@string/title_activity_test_navigation"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+
         <activity android:name=".GmailLogin" />
-        <activity android:name=".FacebookLogin" />
-        <activity android:name=".CreateClassActivity" />
-        <activity android:name=".ClassDetailActivity" />
-        <activity android:name=".JoinClassActivity" />
-        <activity android:name=".StatusActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,10 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SecondActivity"
-            android:label="SecondActivity"
-            android:parentActivityName=".MainActivity" />
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
@@ -92,8 +68,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".ClassDetailStudent" />
-        <activity android:name=".ClassDetailForStudent" />
     </application>
 
 </manifest>

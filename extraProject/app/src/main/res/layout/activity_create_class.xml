@@ -4,52 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".CreateClassActivity">
 
-    <TextView
-        android:id="@+id/details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
-        android:text="Details"
-        android:textColor="#990000"
-        android:textSize="15sp" />
+    <android.support.v7.widget.CardView
+        android:id="@+id/details_card"
+        android:layout_margin="30dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="30dp"
+        android:padding="50dp"
+        app:cardBackgroundColor="@color/colorDetails"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/details"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Details"
+            android:textColor="@color/write"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+    </android.support.v7.widget.CardView>
+
 
     <LinearLayout
         android:id="@+id/linearBig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/details"
+        android:layout_below="@+id/details_card"
         android:layout_marginTop="20dp"
-        android:background="@drawable/style_linear_big"
+        android:background="@color/colorMiddle"
         android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp">
+        android:paddingBottom="20dp"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:elevation="20dp">
 
-
-        <LinearLayout
-            android:id="@+id/linearName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/details">
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="Event Name"
-                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:drawableLeft="@drawable/ic_event"
+                android:drawablePadding="10dp"
                 android:hint="Enter Event Name" />
 
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearCheckbox1"
@@ -62,15 +64,17 @@
                 android:id="@+id/tvDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:text="Days"
+                android:drawablePadding="10dp"
+                android:layout_marginLeft="5dp"
+                android:drawableLeft="@drawable/ic_day"
                 android:textSize="20sp" />
 
             <CheckBox
                 android:id="@+id/cbMon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="20dp"
                 android:text="Mon"
                 android:onClick="onCheckboxClicked"/>
 
@@ -105,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearCheckbox1"
-            android:layout_marginLeft="115dp"
+            android:layout_marginLeft="103dp"
             android:layout_marginTop="20dp">
 
             <CheckBox
@@ -143,33 +147,31 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:drawableLeft="@drawable/ic_time"
+                android:layout_marginLeft="5dp"
                 android:text="Time"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:drawablePadding="10dp"/>
 
 
             <TextView
                 android:id="@+id/start_timePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/style_start_time"
                 android:gravity="center"
-                android:text="START"
-                android:textColor="#fff"
-                android:textSize="15sp" />
+                android:hint="Start time"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/end_timePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/style_start_time"
                 android:gravity="center"
-                android:text="END"
-                android:textColor="#fff"
-                android:textSize="15sp" />
+                android:hint="End time"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -184,7 +186,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="20dp"
                 android:text="Event Start Date"
                 android:textSize="20sp" />
 
@@ -208,40 +210,37 @@
                 android:id="@+id/start_datePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="62dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginRight="40dp"
-                android:background="@drawable/style_date"
                 android:gravity="center"
-                android:text="START"
-                android:textColor="#fff"
-                android:textSize="15sp" />
+                android:hint="Start Date"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/end_datePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:background="@drawable/style_date"
+                android:layout_marginLeft="65dp"
                 android:gravity="center"
-                android:text="END"
-                android:textColor="#fff"
-                android:textSize="15sp" />
+                android:hint="End date"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/sendEvent"
-        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/linearBig"
         android:layout_centerHorizontal="true"
         android:text="Create Event"
         android:textAllCaps="false"
-        android:background="@drawable/style_btn_create"
-        android:typeface="sans"
-        tools:ignore="InvalidId" />
+        android:elevation="20dp"
+        android:textColor="@color/write"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:background="@drawable/selector_btn_details" />
 
 </RelativeLayout>
