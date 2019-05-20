@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -31,6 +32,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
     DatabaseReference myRef;
     private String TAG = "database";
     private TextView startDate, endDate, startTime, endTime;
+    private EditText eventName;
     private CheckBox cbMon, cbTue, cbWed, cbThu, cbFri, cbSat, cbSun;
     private DatePickerDialog.OnDateSetListener startDateListener, endDateListener;
     private TimePickerDialog.OnTimeSetListener startTimeListener, endTimeListener;
@@ -45,6 +47,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_class);
 
+        eventName = findViewById(R.id.etName);
         startDate = findViewById(R.id.start_datePicker);
         endDate = findViewById(R.id.end_datePicker);
         startTime = findViewById(R.id.start_timePicker);
@@ -110,18 +113,27 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
         int year = cal_StartDate.get(Calendar.YEAR);
         int month = cal_StartDate.get(Calendar.MONTH);
         int day = cal_StartDate.get(Calendar.DAY_OF_MONTH);
+
         if (v == sendEvent) {
+
             evt_counter = 5;
             String name = cur_user.getDisplayName();
             String email = cur_user.getEmail();
+            String evName = eventName.getText().toString();
+
             String mergeTime = sTime+"," +eTime;
             myRef = database.getReference(name);
+
             ObjectEvent obj_evt = new ObjectEvent(email , sDate ,eDate ,mergeTime,evt_counter,lat,lng,0);
-            Map<String, Object> Obj_val = obj_evt.toMap();
+            Map<String, Object> Obj_val1 = obj_evt.toMap();
 
             Map<String, Object> childUpdates= new HashMap<>();
-            childUpdates.put("/users/", Obj_val);
+            childUpdates.put("/users/"+ evName + "/", Obj_val1);
+
             myRef.updateChildren(childUpdates);
+
+
+
             Toast.makeText(CreateClassActivity.this,
                     "Write new user : " + name ,
                     Toast.LENGTH_LONG).show();
@@ -130,6 +142,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             intent.putExtra("email" , cur_user.getEmail());
             startActivity(intent);
         }
+
         else if (v == startTime) {
             TimePickerDialog dialog_StartTime = new TimePickerDialog(
                     CreateClassActivity.this,android.R.style.Theme_DeviceDefault_Light_Dialog,
@@ -216,6 +229,8 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
 
         }
     }
+
+
 
     public void onCheckboxClicked(View v){
         boolean checked = ((CheckBox) v).isChecked();
