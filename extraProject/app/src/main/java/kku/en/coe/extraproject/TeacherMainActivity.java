@@ -103,7 +103,7 @@ public class TeacherMainActivity extends AppCompatActivity
         getInitUser();
 //        getEventListFirebase();
 
-        myRef.child(name).addValueEventListener(new ValueEventListener() {
+        myRef.child("JIROT JOE").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.e("Count" ,""+dataSnapshot.getChildrenCount());
