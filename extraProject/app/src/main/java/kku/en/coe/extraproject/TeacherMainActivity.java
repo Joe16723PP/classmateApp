@@ -38,6 +38,11 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -45,15 +50,22 @@ import java.util.List;
 
 public class TeacherMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+    private static final String TAG = "db";
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ListItem> listItems;
+
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+
     FloatingActionButton fab;
     TextView user_name , user_email;
     NavigationView navigationView;
     private FirebaseAuth mAuth;
     FirebaseUser cur_user;
     ImageView profile_pic;
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +77,7 @@ public class TeacherMainActivity extends AppCompatActivity
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
         setSupportActionBar(toolbar);
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(this);
@@ -77,11 +90,34 @@ public class TeacherMainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         getInitUser();
+
+        myRef = database.getReference(name);
+        getFirebaseData();
+
+
+    }
+
+    private void getFirebaseData() {
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                Log.d(TAG, "Value is: " + value);
+                Toast.makeText(TeacherMainActivity.this,
+                        "Value is " + value,
+                        Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
+            }
+        });
     }
 
     private void getInitUser() {
         Bundle extras = getIntent().getExtras();
-        String name = extras.getString("name");
+        name = extras.getString("name");
         String email = extras.getString("email");
 //        String name = cur_user.getDisplayName();
 //        String email = cur_user.getEmail();
