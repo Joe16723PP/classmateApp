@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="50dp"
+    android:background="@android:color/transparent"
     tools:context=".MainActivity">
 
 
@@ -13,7 +15,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="2"
-        android:layout_marginTop="100dp"
+        android:background="@android:color/transparent"
         >
         <FrameLayout
             android:layout_width="match_parent"
@@ -23,78 +25,56 @@
             >
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_gravity="center">
+                android:layout_gravity="bottom">
+
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_3"/>
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_3_removebg" />
             </LinearLayout>
 
         </FrameLayout>
 
         <RelativeLayout
+            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@android:color/background_light">
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/app_name"-->
-                <!--android:gravity="center"-->
-                <!--android:textSize="30sp"-->
-                <!--/>-->
-            <!--<com.inthecheesefactory.thecheeselibrary.widget.AdjustableImageView-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:src="@drawable/font_name"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="40dp" />-->
-
-
-            <!--<com.facebook.login.widget.LoginButton-->
-                <!--android:id="@+id/login_button"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:textSize="20sp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="100dp "-->
-                <!--android:layout_marginBottom="5dp"-->
-                <!--android:paddingTop="10dp"-->
-                <!--android:paddingLeft="20dp"-->
-                <!--android:paddingRight="20dp"-->
-                <!--android:paddingBottom="10dp"-->
-                <!--android:layout_marginLeft="155dp"-->
-                <!--/>-->
-            <com.inthecheesefactory.thecheeselibrary.widget.AdjustableImageButton
-                android:layout_centerVertical="true"
+            android:background="@android:color/transparent">
+            <Button
+                android:layout_marginTop="50dp"
+                android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/gmail_login_button"
-                android:layout_width="80dp"
+                android:text="@string/login_google"
+                android:textColor="@color/write"
+                android:textStyle="bold"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/google_plus"
+                android:paddingRight="20dp"
+                android:paddingLeft="30dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawableLeft="@drawable/google_logo"
                 android:background="@drawable/selector_btn"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
                 />
-            <TextView
-                android:layout_below="@+id/gmail_login_button"
-                android:layout_centerHorizontal="true"
-                android:text="LOGIN"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
-            <!--<Button-->
-                <!--android:layout_below="@+id/testLogin"-->
-                <!--android:id="@+id/testLogin"-->
-                <!--android:text="Guess Login"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:background="@drawable/radiusbtn"-->
-                <!--android:layout_height="wrap_content" />-->
+            <Button
+                android:layout_below="@id/gmail_login_button"
+                android:id="@+id/testLogin"
+                android:text="Guess Login"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/write"
+                android:textStyle="bold"
+                android:layout_width="270dp"
+                android:background="@drawable/selector_btn"
+                android:layout_height="wrap_content" />
 
         </RelativeLayout>
 

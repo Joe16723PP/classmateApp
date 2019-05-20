@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button testLoginBtn;
     GoogleSignInClient mGoogleSignInClient;
     int RC_SIGN_IN = 101;
-    ImageButton googleSignIn;
+    Button googleSignIn;
     private static final String TAG = "FacebookLogin";
     private static final int REQUEST_CODE = 10;
 

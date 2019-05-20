@@ -145,6 +145,8 @@ public class TeacherMainActivity extends AppCompatActivity
         Bundle extras = getIntent().getExtras();
         String name = extras.getString("name");
         String email = extras.getString("email");
+//        String name = cur_user.getDisplayName();
+//        String email = cur_user.getEmail();
         cur_user = mAuth.getCurrentUser();
         View header = navigationView.getHeaderView(0);
         user_name = header.findViewById(R.id.user_name);
