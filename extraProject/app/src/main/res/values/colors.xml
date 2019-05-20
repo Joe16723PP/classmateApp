@@ -19,4 +19,8 @@
     <color name="greenyellow">#ADFF2F</color>
     <color name="colorNormal">#D65317</color>
     <color name="colorPress">#AE3600</color>
+    <color name="colorMiddle">#eaafaf</color>
+    <color name="picker">#40a2738c</color>
+    <color name="peach">#e97a7a</color>
+    <color name="headcreate">#bb5a5a</color>
 </resources>

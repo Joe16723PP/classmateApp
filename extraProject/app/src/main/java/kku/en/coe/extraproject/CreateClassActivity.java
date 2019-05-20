@@ -198,12 +198,12 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             startDateListener = new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    month = month + 1;
-                    String date_start = dayOfMonth + "/" + month + "/" + year;
-                    startDate.setText(date_start);
-                    Toast.makeText(getApplicationContext(),date_start,Toast.LENGTH_LONG).show();
+                        month = month + 1;
+                        String date_start = dayOfMonth + "/" + month + "/" + year;
+                        startDate.setText(date_start);
+                        Toast.makeText(getApplicationContext(), date_start, Toast.LENGTH_LONG).show();
 
-                    sDate = startDate.getText().toString();
+                        sDate = startDate.getText().toString();
                 }
             };
         }
@@ -218,12 +218,12 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             endDateListener = new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    month = month + 1;
-                    String date_end = dayOfMonth + "/" + month + "/" + year;
-                    endDate.setText(date_end);
-                    Toast.makeText(getApplicationContext(),date_end,Toast.LENGTH_LONG).show();
+                        month = month + 1;
+                        String date_end = dayOfMonth + "/" + month + "/" + year;
+                        endDate.setText(date_end);
+                        Toast.makeText(getApplicationContext(), date_end, Toast.LENGTH_LONG).show();
 
-                    eDate = endDate.getText().toString();
+                        eDate = endDate.getText().toString();
                 }
             };
 
