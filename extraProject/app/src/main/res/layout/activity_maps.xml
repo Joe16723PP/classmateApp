@@ -38,7 +38,10 @@
             android:textColor="#000"
             android:background="@null"
             android:hint="Enter Address or City"
-            android:imeOptions="actionSearch"/>
+            android:lines="1"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
     </RelativeLayout>
 
