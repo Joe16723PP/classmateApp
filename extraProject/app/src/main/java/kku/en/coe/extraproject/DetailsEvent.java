@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -43,8 +44,10 @@ public class DetailsEvent extends AppCompatActivity implements View.OnClickListe
         mAuth = FirebaseAuth.getInstance();
         cur_user = mAuth.getCurrentUser();
 
-        name = cur_user.getDisplayName();
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("users");
 
+        name = cur_user.getDisplayName();
 
         eventNameHeader = findViewById(R.id.tv_eventImg);
         eventName = findViewById(R.id.tv_event2);
@@ -108,6 +111,13 @@ public class DetailsEvent extends AppCompatActivity implements View.OnClickListe
         if (v == checkBtn){
             count = count - 1;
             countEvent.setText(String.valueOf(count));
+
+            Toast.makeText(this,"Checked ! Event have " + count + " times left.",Toast.LENGTH_LONG).show();
+            checkBtn.setEnabled(false);
+
+            myRef.child(name).child(cur_evtName).child("evn_cnt").setValue(count);
+
+
 
         }
         else if (v == mapBtn){
