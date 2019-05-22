@@ -135,19 +135,19 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             Random r = new Random();
             numRandom = r.nextInt(max - min + 1) + min;
             if (numRandom == 1 ){
-                color += "#ff4949";
+                color += "#FF9797";
             }
             else if (numRandom == 2 ){
-                color += "#ff3e6d";
+                color += "#FFBE7D";
             }
             else if (numRandom == 3 ){
-                color += "#FFB447";
+                color += "#FDB4BF";
             }
             else if (numRandom == 4 ){
-                color += "#8f71ff";
+                color += "#ffeaa5";
             }
             else if (numRandom == 5 ){
-                color += "#b7fbff";
+                color += "#A3E7D8";
             }
 
 
