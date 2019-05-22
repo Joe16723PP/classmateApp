@@ -158,7 +158,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             int lastIndex = dayofclass.lastIndexOf(',');
             String dayofclassSub = dayofclass.substring(0,lastIndex-1);
 
-            ObjectEvent obj_evt = new ObjectEvent(email , evName, dayofclassSub, color,  sDate ,eDate ,mergeTime,evt_counter,lat,lng);
+            ObjectEvent obj_evt = new ObjectEvent(email , "" ,  evName, dayofclassSub, color,  sDate ,eDate ,mergeTime,evt_counter,lat,lng);
             Map<String, Object> Obj_val1 = obj_evt.toMap();
 
             Map<String, Object> childUpdates = new HashMap<>();

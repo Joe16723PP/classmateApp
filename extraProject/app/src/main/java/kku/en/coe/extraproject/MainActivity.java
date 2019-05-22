@@ -33,7 +33,10 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,6 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            updateUI(myUserObj);
             updateUser(myUserObj);
         }
+
+//        Toast.makeText(this,formattedDate,Toast.LENGTH_LONG).show();
     }
 
     public void btnClickFBLogin (View v) {

@@ -18,7 +18,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class DetailsEvent extends AppCompatActivity implements View.OnClickListener {
@@ -28,10 +31,10 @@ public class DetailsEvent extends AppCompatActivity implements View.OnClickListe
     FirebaseUser cur_user;
     FirebaseAuth mAuth;
 
-    String name, cur_evtName;
+    String name, cur_evtName ,days_log;
     Double lat, lng;
 
-    TextView eventNameHeader, eventName, dayEvent, timeEvent, startDate, endDate, countEvent;
+    TextView eventNameHeader, eventName, dayEvent, timeEvent, startDate, endDate, countEvent ,evt_log;
     Button checkBtn, mapBtn;
     int count;
 
@@ -58,6 +61,7 @@ public class DetailsEvent extends AppCompatActivity implements View.OnClickListe
         countEvent = findViewById(R.id.tv_eventCount2);
         checkBtn = findViewById(R.id.checkEventBtn);
         mapBtn = findViewById(R.id.mapBtn);
+        evt_log = findViewById(R.id.days_log);
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("users");
@@ -82,6 +86,13 @@ public class DetailsEvent extends AppCompatActivity implements View.OnClickListe
                         startDate.setText(objectEvent.getStart_date());
                         endDate.setText(objectEvent.getEnd_date());
                         countEvent.setText(String.valueOf(objectEvent.getEvn_cnt()));
+                        evt_log.setText(String.valueOf(objectEvent.getDays_log()));
+
+                        try {
+                            days_log = String.valueOf(objectEvent.getDays_log());
+                        }catch (Exception e) {
+                            Log.e("daylog","err with : " + e);
+                        }
 
                         count = objectEvent.getEvn_cnt();
                         lat = objectEvent.getLat();
@@ -115,7 +126,14 @@ public class DetailsEvent extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this,"Checked ! Event have " + count + " times left.",Toast.LENGTH_LONG).show();
             checkBtn.setEnabled(false);
 
+            Date c = Calendar.getInstance().getTime();
+            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+            String formattedDate = df.format(c);
+
+            days_log = days_log + "\n" + formattedDate;
+
             myRef.child(name).child(cur_evtName).child("evn_cnt").setValue(count);
+            myRef.child(name).child(cur_evtName).child("days_log").setValue(days_log);
 
 
 

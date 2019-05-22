@@ -9,8 +9,28 @@ import java.util.Map;
 @IgnoreExtraProperties
 public class ObjectEvent {
     public String email;
+
+    public ObjectEvent(String email, String days_log, String evName, String dayofclass, String color, String start_date, String end_date, String time, int evt_cnt, double lat, double lng) {
+        this.email = email;
+        this.days_log = days_log;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.time = time;
+        this.evName = evName;
+        this.dayofclass = dayofclass;
+        this.color = color;
+        this.evt_cnt = evt_cnt;
+        this.lat = lat;
+        this.lng = lng;
+    }
+
+    public String days_log;
     public String start_date , end_date ,time,evName, dayofclass, color;
     public int evt_cnt;
+
+    public String getDays_log() {
+        return days_log;
+    }
 
     public int getEvn_cnt() {
         return evt_cnt;
@@ -99,25 +119,13 @@ public class ObjectEvent {
     public ObjectEvent() {
     }
 
-    public ObjectEvent(String email ,String evName, String dayofclass, String color, String start_date , String end_date , String time , int evt_cnt , double lat ,double lng ) {
-        this.email = email;
-        this.evName = evName;
-        this.dayofclass = dayofclass;
-        this.color = color;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.time = time;
-        this.evt_cnt = evt_cnt;
-        this.lat = lat;
-        this.lng = lng;
-    }
-
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("email", email);
         result.put("evName", evName);
         result.put("dayofclass", dayofclass);
+        result.put("days_log" , days_log);
         result.put("color", color);
         result.put("start_date", start_date);
         result.put("end_date", end_date);

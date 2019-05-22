@@ -46,6 +46,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         viewHolder.tvColor.setBackgroundColor(Color.parseColor(listItem.getColor()));
         viewHolder.cardCounter.setCardBackgroundColor(Color.parseColor(listItem.getColor()));
         viewHolder.tv_event_times.setText(String.valueOf(listItem.getEvn_cnt()));
+        viewHolder.tv_day.setText(listItem.dayofclass);
 
 //        String https_url = listItem.getImgUrl().replace("http","https");
 //        Picasso.get()
@@ -80,7 +81,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvHead, tvDesc , tvColor , tv_event_times;
+        public TextView tvHead, tvDesc , tvColor , tv_event_times, tv_day;
         public CardView cardCounter;
         public ImageView img;
         public LinearLayout linearLayout;
@@ -88,6 +89,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            tv_day = itemView.findViewById(R.id.days);
             tv_event_times = itemView.findViewById(R.id.event_times_tv);
             cardCounter = itemView.findViewById(R.id.evt_counter_times);
             tvColor = itemView.findViewById(R.id.header_color);
