@@ -10,7 +10,28 @@ import java.util.Map;
 public class ObjectEvent {
     public String email;
     public String start_date , end_date ,time,evName, dayofclass, color;
-    public int evt_cnt;
+    public int evn_cnt;
+
+    public int getEvn_cnt() {
+        return evn_cnt;
+    }
+
+    public void setEvn_cnt(int evn_cnt) {
+        this.evn_cnt = evn_cnt;
+    }
+
+    public ObjectEvent(String email, String start_date, String end_date, String time, String evName, String dayofclass, String color, int evn_cnt, double lat, double lng) {
+        this.email = email;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.time = time;
+        this.evName = evName;
+        this.dayofclass = dayofclass;
+        this.color = color;
+        this.evn_cnt = evn_cnt;
+        this.lat = lat;
+        this.lng = lng;
+    }
 
     public void setEmail(String email) {
         this.email = email;
@@ -39,14 +60,6 @@ public class ObjectEvent {
         this.time = time;
     }
 
-    public void setEvt_cnt(int evt_cnt) {
-        this.evt_cnt = evt_cnt;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
     public void setLat(double lat) {
         this.lat = lat;
     }
@@ -55,7 +68,6 @@ public class ObjectEvent {
         this.lng = lng;
     }
 
-    public int status;
     public double lat , lng;
 
     public String getEmail() {
@@ -87,13 +99,7 @@ public class ObjectEvent {
         return time;
     }
 
-    public int getEvt_cnt() {
-        return evt_cnt;
-    }
 
-    public int getStatus() {
-        return status;
-    }
 
     public double getLat() {
         return lat;
@@ -106,20 +112,6 @@ public class ObjectEvent {
     public ObjectEvent() {
     }
 
-    public ObjectEvent(String email ,String evName, String dayofclass, String color, String start_date , String end_date , String time , int evt_cnt , double lat ,double lng , int status) {
-        this.email = email;
-        this.evName = evName;
-        this.dayofclass = dayofclass;
-        this.color = color;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.time = time;
-        this.evt_cnt = evt_cnt;
-        this.lat = lat;
-        this.lng = lng;
-        this.status = status;
-    }
-
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
@@ -130,10 +122,9 @@ public class ObjectEvent {
         result.put("start_date", start_date);
         result.put("end_date", end_date);
         result.put("time", time);
-        result.put("evn_cnt", evt_cnt);
+        result.put("evn_cnt", evn_cnt);
         result.put("lat", lat);
         result.put("lng", lng);
-        result.put("status", status);
         return result;
     }
 }

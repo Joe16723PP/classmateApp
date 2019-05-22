@@ -111,8 +111,8 @@ public class TeacherMainActivity extends AppCompatActivity
                 List<String> keys = new ArrayList<>();
                 for(DataSnapshot keyNode : dataSnapshot.getChildren()){
                     keys.add(keyNode.getKey());
-                    Log.e("fbdb",keyNode.getKey());
                     ObjectEvent objectEvent = keyNode.getValue(ObjectEvent.class);
+                    Log.e("fbdb", String.valueOf(keyNode.getValue(ObjectEvent.class).getEvn_cnt()));
                     objectEvents.add(objectEvent);
 
                 }

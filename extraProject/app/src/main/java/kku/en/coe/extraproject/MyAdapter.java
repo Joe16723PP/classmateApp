@@ -2,8 +2,10 @@ package kku.en.coe.extraproject;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,6 +42,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         final ObjectEvent listItem = listItems.get(position);
         viewHolder.tvHead.setText(listItem.getEvName());
         viewHolder.tvDesc.setText(listItem.getTime());
+        viewHolder.tvColor.setBackgroundColor(Color.parseColor(listItem.getColor()));
+        viewHolder.cardCounter.setCardBackgroundColor(Color.parseColor(listItem.getColor()));
+        viewHolder.tv_event_times.setText(String.valueOf(listItem.getEvn_cnt()));
 
 //        String https_url = listItem.getImgUrl().replace("http","https");
 //        Picasso.get()
@@ -51,7 +56,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"clicked : " + listItem.getEvName(),Toast.LENGTH_LONG).show();
+                Toast.makeText(context,"clicked : " + listItem.getEvn_cnt(),Toast.LENGTH_LONG).show();
             }
         });
 
@@ -63,13 +68,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvHead, tvDesc;
+        public TextView tvHead, tvDesc , tvColor , tv_event_times;
+        public CardView cardCounter;
         public ImageView img;
         public LinearLayout linearLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            tv_event_times = itemView.findViewById(R.id.event_times_tv);
+            cardCounter = itemView.findViewById(R.id.evt_counter_times);
+            tvColor = itemView.findViewById(R.id.header_color);
             tvHead = itemView.findViewById(R.id.header);
             tvDesc = itemView.findViewById(R.id.desc);
             linearLayout = itemView.findViewById(R.id.lnLayout);
