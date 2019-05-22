@@ -143,6 +143,7 @@ public class DetailsEvent extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this,MapsActivity_DB.class);
             intent.putExtra("lat" ,lat);
             intent.putExtra("lng" , lng);
+            intent.putExtra("evnt_name", cur_evtName);
             startActivity(intent);
         }
     }

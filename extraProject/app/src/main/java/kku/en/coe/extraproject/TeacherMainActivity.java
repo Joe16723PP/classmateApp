@@ -1,5 +1,6 @@
 package kku.en.coe.extraproject;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -40,6 +41,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class TeacherMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -61,11 +64,26 @@ public class TeacherMainActivity extends AppCompatActivity
     FirebaseUser cur_user;
     ImageView profile_pic;
     String name;
+
+    private ProgressDialog pgd;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+
+        pgd = ProgressDialog.show(this, "Fetching data", "Loading...", true, false);
+        new Timer().schedule(
+                new TimerTask(){
+                    @Override
+                    public void run(){
+                        pgd.dismiss();
+                    }
+                }, 2500);
+
+        setTitle("Events");
 
         recyclerView = findViewById(R.id.rcv);
         recyclerView.setHasFixedSize(true);

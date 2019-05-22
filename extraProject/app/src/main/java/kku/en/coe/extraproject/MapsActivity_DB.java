@@ -76,12 +76,15 @@ public class MapsActivity_DB extends FragmentActivity implements OnMapReadyCallb
         Bundle extras = getIntent().getExtras();
         lat = extras.getDouble("lat");
         lng = extras.getDouble("lng");
+        String evt_name = extras.getString("evnt_name");
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(lat, lng);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        mMap.animateCamera( CameraUpdateFactory.zoomTo( 15.0f ) );
+        LatLng latLng = new LatLng(lat, lng);
+        mMap.addMarker(new MarkerOptions().position(latLng).title("Event name : " + evt_name));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney,15.0f));
+        float zm = 15;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zm));
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo( 15.0f ));
 
         Toast.makeText(getApplicationContext(), "Lat : " + lat + " " +  "Lng : " + lng, Toast.LENGTH_LONG).show();
     }
