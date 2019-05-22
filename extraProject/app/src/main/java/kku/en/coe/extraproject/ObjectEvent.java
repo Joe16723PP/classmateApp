@@ -9,7 +9,7 @@ import java.util.Map;
 @IgnoreExtraProperties
 public class ObjectEvent {
     public String email;
-    public String start_date , end_date ,time,evName, dayofclass;
+    public String start_date , end_date ,time,evName, dayofclass, color;
     public int evt_cnt;
 
     public void setEmail(String email) {
@@ -19,8 +19,12 @@ public class ObjectEvent {
         this.evName = evName;
     }
 
-    public void setDayofclass(String evName) {
+    public void setDayofclass(String dayofclass) {
         this.dayofclass = dayofclass;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public void setStart_date(String start_date) {
@@ -62,6 +66,15 @@ public class ObjectEvent {
         return evName;
     }
 
+    public String getDayofclass() {
+        return dayofclass;
+    }
+
+
+    public String getColor() {
+        return color;
+    }
+
     public String getStart_date() {
         return start_date;
     }
@@ -93,10 +106,11 @@ public class ObjectEvent {
     public ObjectEvent() {
     }
 
-    public ObjectEvent(String email ,String evName, String dayofclass, String start_date , String end_date , String time , int evt_cnt , double lat ,double lng , int status) {
+    public ObjectEvent(String email ,String evName, String dayofclass, String color, String start_date , String end_date , String time , int evt_cnt , double lat ,double lng , int status) {
         this.email = email;
         this.evName = evName;
         this.dayofclass = dayofclass;
+        this.color = color;
         this.start_date = start_date;
         this.end_date = end_date;
         this.time = time;
@@ -106,13 +120,13 @@ public class ObjectEvent {
         this.status = status;
     }
 
-
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("email", email);
         result.put("evName", evName);
         result.put("dayofclass", dayofclass);
+        result.put("color", color);
         result.put("start_date", start_date);
         result.put("end_date", end_date);
         result.put("time", time);

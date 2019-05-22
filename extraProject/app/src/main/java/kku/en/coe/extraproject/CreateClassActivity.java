@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class CreateClassActivity extends AppCompatActivity implements NumberPicker.OnValueChangeListener, View.OnClickListener {
 
@@ -43,6 +44,12 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
     int evt_counter;
     Button sendEvent;
     String dayofclass = "" ;
+
+    private int min = 1;
+    private int max = 5;
+    private int numRandom = 1 ;
+    String color = "" ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,10 +130,30 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             String email = cur_user.getEmail();
             String evName = eventName.getText().toString();
 
+            Random r = new Random();
+            numRandom = r.nextInt(max - min + 1) + min;
+            if (numRandom == 1 ){
+                color += "#FF9797";
+            }
+            else if (numRandom == 2 ){
+                color += "#FFBE7D";
+            }
+            else if (numRandom == 3 ){
+                color += "#FDB4BF";
+            }
+            else if (numRandom == 4 ){
+                color += "#FFFF88";
+            }
+            else if (numRandom == 5 ){
+                color += "#A3E7D8";
+            }
+
+
+
             String mergeTime = sTime+"," +eTime;
             myRef = database.getReference("users");
 
-            ObjectEvent obj_evt = new ObjectEvent(email , evName,dayofclass,  sDate ,eDate ,mergeTime,evt_counter,lat,lng,0);
+            ObjectEvent obj_evt = new ObjectEvent(email , evName, dayofclass, color,  sDate ,eDate ,mergeTime,evt_counter,lat,lng,0);
             Map<String, Object> Obj_val1 = obj_evt.toMap();
 
             Map<String, Object> childUpdates = new HashMap<>();
@@ -242,7 +269,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbMon:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Monday", Toast.LENGTH_LONG).show();
-                    dayofclass += "Monday , ";
+                    dayofclass += "MON , ";
 
 
                 } else {
@@ -252,7 +279,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbTue:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Tuesday", Toast.LENGTH_LONG).show();
-                    dayofclass += "Tuesday , ";
+                    dayofclass += "TUE , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -261,7 +288,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbWed:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Wednesday", Toast.LENGTH_LONG).show();
-                    dayofclass += "Wednesday , ";
+                    dayofclass += "WED , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -270,7 +297,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbThu:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Thursday", Toast.LENGTH_LONG).show();
-                    dayofclass += "Thursday , ";
+                    dayofclass += "THU , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -279,7 +306,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbFri:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Friday", Toast.LENGTH_LONG).show();
-                    dayofclass += "Friday , ";
+                    dayofclass += "FRI , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -288,7 +315,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbSat:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Saturday", Toast.LENGTH_LONG).show();
-                    dayofclass += "Saturday , ";
+                    dayofclass += "SAT , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -297,7 +324,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbSun:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Sunday", Toast.LENGTH_LONG).show();
-                    dayofclass += "Sunday , ";
+                    dayofclass += "SUN , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
