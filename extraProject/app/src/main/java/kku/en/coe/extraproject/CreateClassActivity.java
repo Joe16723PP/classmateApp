@@ -42,6 +42,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
     Double lat,lng;
     int evt_counter;
     Button sendEvent;
+    String dayofclass = "" ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,7 +126,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             String mergeTime = sTime+"," +eTime;
             myRef = database.getReference("users");
 
-            ObjectEvent obj_evt = new ObjectEvent(email , evName,  sDate ,eDate ,mergeTime,evt_counter,lat,lng,0);
+            ObjectEvent obj_evt = new ObjectEvent(email , evName,dayofclass,  sDate ,eDate ,mergeTime,evt_counter,lat,lng,0);
             Map<String, Object> Obj_val1 = obj_evt.toMap();
 
             Map<String, Object> childUpdates = new HashMap<>();
@@ -236,10 +237,13 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
     public void onCheckboxClicked(View v){
         boolean checked = ((CheckBox) v).isChecked();
 
+
         switch (v.getId()) {
             case R.id.cbMon:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Monday", Toast.LENGTH_LONG).show();
+                    dayofclass += "Monday , ";
+
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -248,6 +252,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbTue:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Tuesday", Toast.LENGTH_LONG).show();
+                    dayofclass += "Tuesday , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -256,6 +261,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbWed:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Wednesday", Toast.LENGTH_LONG).show();
+                    dayofclass += "Wednesday , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -264,6 +270,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbThu:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Thursday", Toast.LENGTH_LONG).show();
+                    dayofclass += "Thursday , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -272,6 +279,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbFri:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Friday", Toast.LENGTH_LONG).show();
+                    dayofclass += "Friday , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -280,6 +288,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbSat:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Saturday", Toast.LENGTH_LONG).show();
+                    dayofclass += "Saturday , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
@@ -288,12 +297,15 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             case R.id.cbSun:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Sunday", Toast.LENGTH_LONG).show();
+                    dayofclass += "Sunday , ";
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
                 }
                 break;
         }
+
+
     }
 
     @Override

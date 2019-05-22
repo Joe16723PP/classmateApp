@@ -9,7 +9,7 @@ import java.util.Map;
 @IgnoreExtraProperties
 public class ObjectEvent {
     public String email;
-    public String start_date , end_date ,time,evName;
+    public String start_date , end_date ,time,evName, dayofclass;
     public int evt_cnt;
 
     public void setEmail(String email) {
@@ -17,6 +17,10 @@ public class ObjectEvent {
     }
     public void setEvName(String evName) {
         this.evName = evName;
+    }
+
+    public void setDayofclass(String evName) {
+        this.dayofclass = dayofclass;
     }
 
     public void setStart_date(String start_date) {
@@ -89,9 +93,10 @@ public class ObjectEvent {
     public ObjectEvent() {
     }
 
-    public ObjectEvent(String email ,String evName, String start_date , String end_date , String time , int evt_cnt , double lat ,double lng , int status) {
+    public ObjectEvent(String email ,String evName, String dayofclass, String start_date , String end_date , String time , int evt_cnt , double lat ,double lng , int status) {
         this.email = email;
         this.evName = evName;
+        this.dayofclass = dayofclass;
         this.start_date = start_date;
         this.end_date = end_date;
         this.time = time;
@@ -107,6 +112,7 @@ public class ObjectEvent {
         HashMap<String, Object> result = new HashMap<>();
         result.put("email", email);
         result.put("evName", evName);
+        result.put("dayofclass", dayofclass);
         result.put("start_date", start_date);
         result.put("end_date", end_date);
         result.put("time", time);
