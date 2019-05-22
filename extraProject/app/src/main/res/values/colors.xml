@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="write">#FFFFFF</color>
-    <color name="writegray">#D3D3D3</color>
+    <color name="whitegray">#D3D3D3</color>
     <color name="red">#FF0000</color>
     <color name="color_google_red">#C82727</color>
     <color name="pink">#ff1493</color>
@@ -23,4 +23,5 @@
     <color name="picker">#40a2738c</color>
     <color name="peach">#e97a7a</color>
     <color name="headcreate">#bb5a5a</color>
+    <color name="btnDetails">#f5eee6</color>
 </resources>

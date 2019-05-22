@@ -1,5 +1,6 @@
 package kku.en.coe.extraproject;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -56,11 +57,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"clicked : " + listItem.getEvn_cnt(),Toast.LENGTH_LONG).show();
+//                doIntent(listItem);
+                Intent intent = new Intent(context, DetailsEvent.class);
+                intent.putExtra("event_name" , listItem.getEvName());
+                Toast.makeText(context,"clicked : " + listItem.getEvName(),Toast.LENGTH_LONG).show();
+                context.startActivity(intent);
             }
         });
 
     }
+
+//    private void doIntent(ObjectEvent listItem) {
+//        Intent intent = new Intent(context, DetailsEvent.class);
+//        intent.putExtra("event_name" , listItem.getEvName());
+//        Toast.makeText(context,"clicked : " + listItem.getEvName(),Toast.LENGTH_LONG).show();
+//        context.startActivity(intent);
+//    }
 
     @Override
     public int getItemCount() {

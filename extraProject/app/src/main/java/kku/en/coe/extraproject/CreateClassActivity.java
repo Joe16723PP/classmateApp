@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -32,12 +33,12 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
     FirebaseDatabase database;
     DatabaseReference myRef;
     private String TAG = "database";
-    private TextView startDate, endDate, startTime, endTime;
+    private EditText startDate, endDate, startTime, endTime;
     private EditText eventName, eventCount;
     private CheckBox cbMon, cbTue, cbWed, cbThu, cbFri, cbSat, cbSun;
     private DatePickerDialog.OnDateSetListener startDateListener, endDateListener;
     private TimePickerDialog.OnTimeSetListener startTimeListener, endTimeListener;
-    String AmPm, sTime, eTime, sDate, eDate;
+    String AmPm, sTime, eTime, sDate, eDate, evCounter;
     private FirebaseAuth mAuth;
     FirebaseUser cur_user;
     Double lat,lng;
@@ -129,6 +130,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             String name = cur_user.getDisplayName();
             String email = cur_user.getEmail();
             String evName = eventName.getText().toString();
+            String tmp_evc = eventCount.getText().toString();
 
             Random r = new Random();
             numRandom = r.nextInt(max - min + 1) + min;
@@ -153,7 +155,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             String mergeTime = sTime+"," +eTime;
             myRef = database.getReference("users");
 
-            ObjectEvent obj_evt = new ObjectEvent(email , evName, dayofclass, color,  sDate ,eDate ,mergeTime ,evt_counter,lat,lng);
+            ObjectEvent obj_evt = new ObjectEvent(email , evName, dayofclass, color,  sDate ,eDate ,mergeTime,evt_counter,lat,lng);
             Map<String, Object> Obj_val1 = obj_evt.toMap();
 
             Map<String, Object> childUpdates = new HashMap<>();

@@ -7,6 +7,10 @@
     android:background="@drawable/gradient"
     tools:context=".CreateClassActivity">
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
     <android.support.v7.widget.CardView
         android:id="@+id/details_card"
         android:layout_margin="30dp"
@@ -160,7 +164,7 @@
                 android:textSize="20sp" />
 
 
-            <TextView
+            <EditText
                 android:id="@+id/start_timePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -170,9 +174,11 @@
                 android:text="Start Time"
                 android:textSize="15sp"
                 android:background="@color/picker"
-                android:padding="9dp"/>
+                android:padding="9dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/end_timePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -181,7 +187,9 @@
                 android:text="End Time"
                 android:textSize="15sp"
                 android:background="@color/picker"
-                android:padding="9dp"/>
+                android:padding="9dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
         </LinearLayout>
 
@@ -216,7 +224,7 @@
             android:layout_below="@+id/linearDate"
             android:layout_marginTop="30dp">
 
-            <TextView
+            <EditText
                 android:id="@+id/start_datePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -226,9 +234,11 @@
                 android:text="Start Date"
                 android:padding="9dp"
                 android:background="@color/picker"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/end_datePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -237,7 +247,9 @@
                 android:text="End Date"
                 android:padding="9dp"
                 android:background="@color/picker"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
         </LinearLayout>
 
@@ -256,5 +268,7 @@
         android:textSize="20sp"
         android:textAllCaps="false"
         android:background="@drawable/selector_btn_create" />
+
+    </ScrollView>
 
 </RelativeLayout>
