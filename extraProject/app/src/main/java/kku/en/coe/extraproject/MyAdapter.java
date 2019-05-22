@@ -51,7 +51,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"clicked : " + listItem.getEmail(),Toast.LENGTH_LONG).show();
+                Toast.makeText(context,"clicked : " + listItem.getEvName(),Toast.LENGTH_LONG).show();
             }
         });
 
@@ -72,7 +72,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
             tvHead = itemView.findViewById(R.id.header);
             tvDesc = itemView.findViewById(R.id.desc);
-            img = itemView.findViewById(R.id.imgView);
             linearLayout = itemView.findViewById(R.id.lnLayout);
         }
     }

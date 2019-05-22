@@ -114,7 +114,9 @@ public class TeacherMainActivity extends AppCompatActivity
                     Log.e("fbdb",keyNode.getKey());
                     ObjectEvent objectEvent = keyNode.getValue(ObjectEvent.class);
                     objectEvents.add(objectEvent);
+
                 }
+
                 adapter = new MyAdapter(objectEvents,TeacherMainActivity.this);
                 recyclerView.setAdapter(adapter);
             }
