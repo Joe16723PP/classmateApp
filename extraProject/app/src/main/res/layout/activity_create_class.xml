@@ -49,6 +49,14 @@
                 android:drawableLeft="@drawable/ic_event"
                 android:drawablePadding="10dp"/>
 
+        <EditText
+            android:id="@+id/etEventCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_count"
+            android:drawablePadding="10dp"
+            android:hint="Event Number of times (number)"/>
+
 
         <LinearLayout
             android:id="@+id/linearCheckbox1"
@@ -241,7 +249,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="50dp"
         android:layout_centerHorizontal="true"
         android:text="Create Event"
         android:textColor="@color/write"

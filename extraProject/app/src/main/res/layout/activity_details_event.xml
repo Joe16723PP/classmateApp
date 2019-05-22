@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsEvent">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:cardBackgroundColor="@color/colorMiddle"
+        android:layout_margin="15dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Details Event"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/red"/>
+
+            <TextView
+                android:id="@+id/tv_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_below="@id/tv_details"
+                android:text="Event Name : "
+                android:drawableLeft="@drawable/ic_event"
+                android:drawablePadding="10dp"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_event2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_event"
+                android:layout_below="@id/tv_details"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:hint="Event Name"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_event"
+                android:layout_marginTop="20dp"
+                android:text="Days : "
+                android:drawableLeft="@drawable/ic_day"
+                android:drawablePadding="10dp"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_date2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_date"
+                android:layout_below="@id/tv_event"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:hint="Days Event"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_date"
+                android:layout_marginTop="20dp"
+                android:text="Time : "
+                android:drawableLeft="@drawable/ic_time"
+                android:drawablePadding="10dp"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_time"
+                android:layout_below="@id/tv_date"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:hint="Time Event"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_strdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_time"
+                android:layout_marginTop="20dp"
+                android:text="Start Date : "
+                android:drawableLeft="@drawable/ic_strtime"
+                android:drawablePadding="10dp"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_strdate2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_strdate"
+                android:layout_below="@id/tv_time"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:hint="Start Date Event"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_enddate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_strdate"
+                android:layout_marginTop="20dp"
+                android:text="End Date : "
+                android:drawableLeft="@drawable/ic_strtime"
+                android:drawablePadding="10dp"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_enddate2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_enddate"
+                android:layout_below="@id/tv_strdate"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:hint="End Date Event"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_eventCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_enddate"
+                android:layout_marginTop="20dp"
+                android:text="Event Count : "
+                android:drawableLeft="@drawable/ic_event"
+                android:drawablePadding="10dp"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/tv_eventCount2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_eventCount"
+                android:layout_below="@id/tv_enddate"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:hint="Event Count"
+                android:textSize="17sp"/>
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/checkEventBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardview"
+        android:src="@drawable/location"
+        android:background="@color/fui_transparent"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

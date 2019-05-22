@@ -32,7 +32,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
     DatabaseReference myRef;
     private String TAG = "database";
     private TextView startDate, endDate, startTime, endTime;
-    private EditText eventName;
+    private EditText eventName, eventCount;
     private CheckBox cbMon, cbTue, cbWed, cbThu, cbFri, cbSat, cbSun;
     private DatePickerDialog.OnDateSetListener startDateListener, endDateListener;
     private TimePickerDialog.OnTimeSetListener startTimeListener, endTimeListener;
@@ -48,6 +48,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
         setContentView(R.layout.activity_create_class);
 
         eventName = findViewById(R.id.etName);
+        eventCount = findViewById(R.id.etEventCount);
         startDate = findViewById(R.id.start_datePicker);
         endDate = findViewById(R.id.end_datePicker);
         startTime = findViewById(R.id.start_timePicker);
