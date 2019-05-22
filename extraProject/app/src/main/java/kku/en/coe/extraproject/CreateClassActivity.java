@@ -125,7 +125,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
             String mergeTime = sTime+"," +eTime;
             myRef = database.getReference("users");
 
-            ObjectEvent obj_evt = new ObjectEvent(email , sDate ,eDate ,mergeTime,evt_counter,lat,lng,0);
+            ObjectEvent obj_evt = new ObjectEvent(email , evName,  sDate ,eDate ,mergeTime,evt_counter,lat,lng,0);
             Map<String, Object> Obj_val1 = obj_evt.toMap();
 
             Map<String, Object> childUpdates = new HashMap<>();

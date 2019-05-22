@@ -38,7 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         final ObjectEvent listItem = listItems.get(position);
-        viewHolder.tvHead.setText(listItem.getEmail());
+        viewHolder.tvHead.setText(listItem.getEvName());
         viewHolder.tvDesc.setText(listItem.getTime());
 
 //        String https_url = listItem.getImgUrl().replace("http","https");
