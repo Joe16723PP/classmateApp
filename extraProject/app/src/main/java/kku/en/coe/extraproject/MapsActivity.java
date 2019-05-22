@@ -15,8 +15,10 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +52,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private EditText mSearchText;;
     private ImageButton mNextMap;
+    private ImageView search;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
         mSearchText = findViewById(R.id.etSearch);
         mNextMap = findViewById(R.id.btnNextFromMap);
+        search = findViewById(R.id.img_search);
         getLocationPermission();
 
 //        RxPermissions rxPermissions = new RxPermissions(this);
@@ -68,6 +73,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //  init();
         
         mNextMap.setOnClickListener(this);
+        search.setOnClickListener(this);
 
     }
 
@@ -157,11 +163,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             moveCamera(new LatLng(address.getLatitude(), address.getLongitude()), DEFAULT_ZOOM,
                     address.getAddressLine(0));
+
         }
     }
 
     private void moveCamera(LatLng latLng, float defaultZoom, String addressLine) {
         Log.d(TAG, "move camera to: lat: " + latLng.latitude + ", lng: " + latLng.longitude);
+        Toast.makeText(this, "lat: " + latLng.latitude + ", lng: " + latLng.longitude, Toast.LENGTH_LONG).show();
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, defaultZoom));
 
         Lat = latLng.latitude;

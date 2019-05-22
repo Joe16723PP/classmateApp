@@ -45,6 +45,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
     int evt_counter;
     Button sendEvent;
     String dayofclass = "" ;
+    String mon = "Mon , ",tue = "Tue , ",wed = "Wed , ",thu = "Thu , ",fri = "Fri , ",sat = "Sat , ",sun = "Sun , ";
 
     private int min = 1;
     private int max = 5;
@@ -269,75 +270,95 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
     public void onCheckboxClicked(View v){
         boolean checked = ((CheckBox) v).isChecked();
 
-
         switch (v.getId()) {
             case R.id.cbMon:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Monday", Toast.LENGTH_LONG).show();
-                    dayofclass += "MON , ";
+                    dayofclass += mon;
 
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    if (dayofclass != null) {
+                        dayofclass = dayofclass.replace(mon,"");
+                        Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    }
                 }
                 break;
             case R.id.cbTue:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Tuesday", Toast.LENGTH_LONG).show();
-                    dayofclass += "TUE , ";
+                    dayofclass += tue;
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    if (dayofclass != null) {
+                        dayofclass = dayofclass.replace(tue,"");
+                        Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    }
                 }
                 break;
             case R.id.cbWed:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Wednesday", Toast.LENGTH_LONG).show();
-                    dayofclass += "WED , ";
+                    dayofclass += wed;
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    if (dayofclass != null) {
+                        dayofclass = dayofclass.replace(wed,"");
+                        Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    }
                 }
                 break;
             case R.id.cbThu:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Thursday", Toast.LENGTH_LONG).show();
-                    dayofclass += "THU , ";
+                    dayofclass += thu;
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    if (dayofclass != null) {
+                        dayofclass = dayofclass.replace(thu,"");
+                        Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    }
                 }
                 break;
             case R.id.cbFri:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Friday", Toast.LENGTH_LONG).show();
-                    dayofclass += "FRI , ";
+                    dayofclass += fri;
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    if (dayofclass != null) {
+                        dayofclass = dayofclass.replace(fri,"");
+                        Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    }
                 }
                 break;
             case R.id.cbSat:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Saturday", Toast.LENGTH_LONG).show();
-                    dayofclass += "SAT , ";
+                    dayofclass += sat;
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    if (dayofclass != null) {
+                        dayofclass = dayofclass.replace(sat,"");
+                        Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    }
                 }
                 break;
             case R.id.cbSun:
                 if (checked){
                     Toast.makeText(getApplicationContext(), "Choose Sunday", Toast.LENGTH_LONG).show();
-                    dayofclass += "SUN , ";
+                    dayofclass += sun;
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    if (dayofclass != null) {
+                        dayofclass = dayofclass.replace(sun,"");
+                        Toast.makeText(getApplicationContext(), "Un-Checked", Toast.LENGTH_LONG).show();
+                    }
                 }
                 break;
         }
 
-
+        Log.d("dayofclass", dayofclass);
     }
 
     @Override
