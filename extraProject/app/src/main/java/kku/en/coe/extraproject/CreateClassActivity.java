@@ -125,7 +125,7 @@ public class CreateClassActivity extends AppCompatActivity implements NumberPick
 
         if (v == sendEvent) {
 
-            evt_counter = 5;
+            evt_counter = Integer.parseInt(eventCount.getText().toString());
             String name = cur_user.getDisplayName();
             String email = cur_user.getEmail();
             String evName = eventName.getText().toString();

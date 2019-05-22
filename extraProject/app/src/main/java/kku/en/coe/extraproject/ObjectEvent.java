@@ -20,7 +20,7 @@ public class ObjectEvent {
         this.evn_cnt = evn_cnt;
     }
 
-    public ObjectEvent(String email, String start_date, String end_date, String time, String evName, String dayofclass, String color, int evn_cnt, double lat, double lng) {
+    public ObjectEvent(String email, String evName, String dayofclass, String color, String start_date, String end_date, String time, int evn_cnt, double lat, double lng) {
         this.email = email;
         this.start_date = start_date;
         this.end_date = end_date;
